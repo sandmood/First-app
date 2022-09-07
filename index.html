@@ -28,7 +28,7 @@
             <span class="city" id="form-city">Kyiv</span>
           </div>
             <div class="col-3">
-							<form id="form-input">
+							<form id="form-search">
               <input 
               type="text" id="city-input"
               class="form-control"
@@ -48,20 +48,28 @@
                 </div>
 
           <div class="col-2">
-            <span class="temp" id="realtemp">+30°C</span>
+            <span class="temp" id="realtemp"></span>
           </div>
           </div>
+          <div class="row">
+             <div class="col-4">Humidity: <span class="show-humidity" id="humidity"></span>%</div>
+              <div class="col-4">Wind: <span class="show-wind" id="wind"></span> km/h</div>
+              <div class="col-3">
           <div class="change-temp">
             <a href="#" id="celsius-link">°C</a> | 
             <a href="#" id="fahr-link">°F</a>
+          </div>
             </div>
             <div class="block-1">
             <div class="row">
               <div class="col-3">
-              <img src="images/cloud-sun-solid.svg" alt="" width="120" /></div>
-              <div class="col-3" id="time">1404</div>
-              <div class="col-3" id="date">31.07.2022</div>
-              <div class="col-3" id="today">Sunday</div>
+              <img src="" id="icon" alt="" class="img-icon" />
+            <p>
+              <span class="sky" id="description"></span>
+            </p></div>
+              <div class="col-3" id="time"></div>
+              <div class="col-3" id="date"></div>
+              <div class="col-3" id="today"></div>
             </div>
           </div>
           <div class="block-2 px-4">
@@ -146,6 +154,7 @@
                       </div>
 
         </div>
+      </div>
       </div>
       </div>
       <span class="copyright">

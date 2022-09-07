@@ -30,20 +30,21 @@
 .change-temp {
   display: block;
   text-align: right;
-  padding-right: 50px;
+  padding-right: 20px;
   text-decoration: none;
 }
 .block-1 {
   display: block;
   text-align: center;
-  position: relative;
-  margin-top: 20px;
-  font-size: 26px;
+  margin-top: 22px;
+  font-size: 20px;
   font-weight: bold;
 }
-img {
+.img-icon {
   display: block;
-  margin-top: -30px;
+  text-align: center;
+  margin-top: -40px;
+  width: 120px;
 }
 .block-2 {
   display: block;
@@ -55,8 +56,16 @@ form {
   display: block;
 }
 
+.sky {
+  text-align: left;
+  font-size: 18px;
+}
+p::first-letter {
+  text-transform: uppercase;
+}
 .copyright {
   display: block;
   text-align: center;
   font-family: "Comfortaa", cursive;
+  font-size: 14px;
 }
