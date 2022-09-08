@@ -41,41 +41,6 @@ let days = [
 let currentDay = days[currentTime.getDay()];
 today.innerHTML = `${currentDay}`;
 
-function showForecast() {
-  let forecastEl = document.querySelector("#forecast");
-  let days = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let forecastHTML = `<div class="row gx-0">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
-          <div class="card" style="width: 123px; height: auto;">
-            <div class="card-header">${day}</div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <i class="fa-solid fa-cloud-rain fa-2x"></i>
-              </li>
-              <li class="list-group-item">
-                <span class="max-temp">22°</span>
-                <span class="min-temp"> 15°</span>
-              </li>
-            </ul>
-            </div>
-          </div>
-        `;
-  });
-  forecastHTML = forecastHTML + `</div>`;
-  forecastEl.innerHTML = forecastHTML;
-}
-showForecast();
-
 function showTemp(response) {
   celsiusTemp = response.data.main.temp;
   document.querySelector(`#realtemp`).innerHTML = `${Math.round(celsiusTemp)}`;
