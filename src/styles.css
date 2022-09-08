@@ -70,3 +70,6 @@ p::first-letter {
   font-family: "Comfortaa", cursive;
   font-size: 14px;
 }
+.min-temp {
+  color: grey;
+}
