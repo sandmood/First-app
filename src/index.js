@@ -41,7 +41,8 @@ let days = [
 let currentDay = days[currentTime.getDay()];
 today.innerHTML = `${currentDay}`;
 
-function showForecast() {
+function showForecast(response) {
+  console.log(response.data.daily);
   let forecastEl = document.querySelector("#forecast");
   let days = [
     "Monday",
@@ -74,7 +75,13 @@ function showForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastEl.innerHTML = forecastHTML;
 }
-showForecast();
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
+}
 
 function showTemp(response) {
   celsiusTemp = response.data.main.temp;
@@ -92,6 +99,7 @@ function showTemp(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  getForecast(response.data.coord);
 }
 
 let apiKey = "f508d428d047ff2cc7eb9c220e59f456";
