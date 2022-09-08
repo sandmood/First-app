@@ -41,36 +41,51 @@ let days = [
 let currentDay = days[currentTime.getDay()];
 today.innerHTML = `${currentDay}`;
 
-function showForecast(response) {
-  console.log(response.data.daily);
-  let forecastEl = document.querySelector("#forecast");
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
   let days = [
+    "Sunday",
     "Monday",
     "Tuesday",
-    "Wednesday",
     "Thursday",
+    "Wednesday",
     "Friday",
     "Saturday",
   ];
+  return days[day];
+}
+
+function showForecast(response) {
+  let forecast = response.data.daily;
+  let forecastEl = document.querySelector("#forecast");
   let forecastHTML = `<div class="row gx-0">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
           <div class="card" style="width: 123px; height: auto;">
-            <div class="card-header">${day}</div>
+            <div class="card-header">${formatDay(forecastDay.dt)}</div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
-                <i class="fa-solid fa-cloud-rain fa-2x"></i>
+                <img src="http://openweathermap.org/img/wn/${
+                  forecastDay.weather[0].icon
+                }@2x.png"  width="50"></i>
               </li>
               <li class="list-group-item">
-                <span class="max-temp">22°</span>
-                <span class="min-temp"> 15°</span>
+                <span class="max-temp">${Math.round(
+                  forecastDay.temp.max
+                )}°</span>
+                <span class="min-temp"> ${Math.round(
+                  forecastDay.temp.min
+                )}°</span>
               </li>
             </ul>
             </div>
           </div>
         `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastEl.innerHTML = forecastHTML;
