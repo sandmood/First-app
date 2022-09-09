@@ -73,3 +73,6 @@ p::first-letter {
 .min-temp {
   color: grey;
 }
+img {
+  filter: grayscale(100%);
+}
