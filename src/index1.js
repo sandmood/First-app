@@ -53,7 +53,7 @@ function formatDay(timestamp) {
     "Friday",
     "Saturday",
   ];
-  return days[day];
+  return days[date];
 }
 
 function showForecast(response) {
@@ -69,17 +69,11 @@ function showForecast(response) {
             <div class="card-header">${formatDay(forecastDay.dt)}</div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
-                <img src="http://openweathermap.org/img/wn/${
-                  forecastDay.weather[0].icon
-                }@2x.png"  width="50"></i>
+                <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"></i>
               </li>
               <li class="list-group-item">
-                <span class="max-temp">${Math.round(
-                  forecastDay.temp.max
-                )}°</span>
-                <span class="min-temp"> ${Math.round(
-                  forecastDay.temp.min
-                )}°</span>
+                <span class="max-temp">22°</span>
+                <span class="min-temp"> 15°</span>
               </li>
             </ul>
             </div>
@@ -93,7 +87,7 @@ function showForecast(response) {
 
 function getForecast(coordinates) {
   console.log(coordinates);
-  let apiKey = "f508d428d047ff2cc7eb9c220e59f456";
+  let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showForecast);
 }
